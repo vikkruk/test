@@ -70,13 +70,17 @@ const TouristAttraction: React.FC<TouristAttractionProps> = ({
       borderRadius: '15px',
       userSelect: 'none',
       position: 'relative',
-      transition: 'height 0.5s linear 0.4s, position 0.5s linear 0.4s, opacity 0.2s linear 0.2s, transform 0.2s linear 0.2s',
+      transition: 'height 0.5s linear 0.4s, position 0.5s linear 0.4s, opacity 0.2s linear 0.2s, transform 0.3s linear 0.2s',
 
       '&.enlarge': {
         height: 600,
         justifySelf: 'center',
         position: 'absolute',
         top: 100,
+
+        '& h3': {
+          visibility: 'visible',
+        },
       },
 
       '&.hide': {
@@ -119,8 +123,8 @@ const TouristAttraction: React.FC<TouristAttractionProps> = ({
     }}
     >
       <Typography component="h2" variant="h3">{title}</Typography>
-      <Typography component="h3" variant="h5">{description}</Typography>
       <Typography component="h4" variant="h6">{location}</Typography>
+      <Typography component="h3" variant="h5" sx={{ visibility: 'hidden', transition: 'visibility 0.5s ease-in 0.5s' }}>{description}</Typography>
     </Box>
   </Box>
 );
